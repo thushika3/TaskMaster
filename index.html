@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enhanced To-Do List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1><i class="fas fa-tasks"></i> TaskMaster</h1>
+      <p class="app-subtitle">Organize your day with ease</p>
+    </header>
+    
+    <div class="input-section">
+      <div class="input-group">
+        <input type="text" id="taskInput" placeholder="What needs to be done?" autofocus aria-label="Task input" />
+        <button id="addBtn" aria-label="Add task"><i class="fas fa-plus"></i> Add</button>
+      </div>
+      
+      <div class="date-reminder-section">
+        <div class="date-time-inputs">
+          <div class="input-wrapper">
+            <label for="dueDateInput"><i class="far fa-calendar"></i></label>
+            <input type="date" id="dueDateInput" class="due-date-input" aria-label="Due date">
+          </div>
+          <div class="input-wrapper">
+            <label for="reminderTimeInput"><i class="far fa-clock"></i></label>
+            <input type="time" id="reminderTimeInput" class="reminder-time-input" aria-label="Reminder time">
+          </div>
+          <div class="input-wrapper">
+            <label for="tagSelect"><i class="fas fa-tag"></i></label>
+            <select id="tagSelect" class="tag-select" aria-label="Task tag">
+              <option value="">No Tag</option>
+              <option value="Work">Work</option>
+              <option value="Personal">Personal</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </div>
+        </div>
+
+        <input type="file" id="fileInput" style="margin-top: 10px;" />
+
+        <!-- 🔐 Lock password field -->
+        <input type="password" id="lockPassword" placeholder="Optional: Set a lock password" style="margin-top: 10px;" />
+      </div>
+    </div>
+    
+    <div class="filter-buttons">
+      <button class="filter-btn active" data-filter="all">All Tasks</button>
+      <button class="filter-btn" data-filter="active">Active</button>
+      <button class="filter-btn" data-filter="completed">Completed</button>
+    </div>
+    
+    <div class="task-list-container">
+      <ul id="taskList"></ul>
+    </div>
+    
+    <footer class="task-stats">
+      <span id="taskCount" aria-live="polite">0 tasks remaining</span>
+      <button id="clearCompleted" aria-label="Clear completed tasks">Clear Completed</button>
+    </footer>
+  </div>
+  
+  <div id="notificationArea"></div>
+  <script src="script.js"></script>
+</body>
+</html>
